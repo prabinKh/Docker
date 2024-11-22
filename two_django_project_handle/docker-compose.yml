@@ -4,7 +4,7 @@ services:
   web1:
     build:
       context: ./demo1/
-    command: python manage.py runserver 0.0.0.0:8000
+    command: gunicorn demo1.wsgi:application --bind 0.0.0.0:8000 --workers 3
     volumes:
       - ./demo1/:/usr/src/app/
       - static_files:/usr/src/app/staticfiles
@@ -18,7 +18,7 @@ services:
   web2:
     build:
       context: ./demo2/
-    command: python manage.py runserver 0.0.0.0:8080
+    command: gunicorn demo2.wsgi:application --bind 0.0.0.0:8080 --workers 3
     volumes:
       - ./demo2/:/usr/src/app/
       - static_files:/usr/src/app/staticfiles
