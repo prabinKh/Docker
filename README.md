@@ -1,4 +1,4 @@
-Dockerfile for React Application
+#Dockerfile for React Application
 dockerfile
 Copy code
 FROM node  
@@ -7,8 +7,8 @@ COPY . /myapp/
 RUN npm install  
 EXPOSE 3000  
 CMD ["npm", "start"]  
-Docker Commands
-Create a Docker Image
+##Docker Commands
+#Create a Docker Image
 bash
 Copy code
 docker build -t <image-name> .
